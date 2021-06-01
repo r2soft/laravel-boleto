@@ -178,6 +178,7 @@
 				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Caixa.html">Eduardokum\LaravelBoleto\Boleto\Banco\Caixa</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Hsbc.html">Eduardokum\LaravelBoleto\Boleto\Banco\Hsbc</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Itau.html">Eduardokum\LaravelBoleto\Boleto\Banco\Itau</a></li>
+				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Qiscd.html">Eduardokum\LaravelBoleto\Boleto\Banco\Qiscd</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Santander.html">Eduardokum\LaravelBoleto\Boleto\Banco\Santander</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Sicredi.html">Eduardokum\LaravelBoleto\Boleto\Banco\Sicredi</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Boleto.Banco.Unicred.html">Eduardokum\LaravelBoleto\Boleto\Banco\Unicred</a></li>
@@ -194,6 +195,7 @@
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab240.Banco.Bradesco.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco\Bradesco</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab240.Banco.Caixa.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco\Caixa</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab240.Banco.Itau.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco\Itau</a></li>
+				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab240.Banco.Qiscd.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco\Qiscd</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab240.Banco.Santander.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco\Santander</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab240.Banco.Sicredi.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco\Sicredi</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Remessa.Cnab400.AbstractRemessa.html">Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\AbstractRemessa</a></li>
@@ -231,6 +233,7 @@
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Banco.Caixa.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Banco\Caixa</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Banco.Hsbc.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Banco\Hsbc</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Banco.Itau.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Banco\Itau</a></li>
+				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Banco.Qiscd.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Banco\Qiscd</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Banco.Santander.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Banco\Santander</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Banco.Sicredi.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Banco\Sicredi</a></li>
 				<li><a href="class-Eduardokum.LaravelBoleto.Cnab.Retorno.Cnab400.Detalhe.html">Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Detalhe</a></li>
@@ -497,116 +500,139 @@
 </span><span id="217" class="l"><a href="#217">217 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$carteira</span> . Util::numberFormatGeral(<span class="php-var">$nossoNumero</span>, <span class="php-num">11</span>), <span class="php-num">2</span>, <span class="php-num">7</span>, <span class="php-num">0</span>, <span class="php-quote">'P'</span>);
 </span><span id="218" class="l"><a href="#218">218 </a>    }
 </span><span id="219" class="l"><a href="#219">219 </a>
-</span><span id="220" class="l"><a href="#220">220 </a>    <span class="php-comment">/*
-</span></span><span id="221" class="l"><a href="#221">221 </a><span class="php-comment">    |--------------------------------------------------------------------------
-</span></span><span id="222" class="l"><a href="#222">222 </a><span class="php-comment">    | 341 - Itau
-</span></span><span id="223" class="l"><a href="#223">223 </a><span class="php-comment">    |--------------------------------------------------------------------------
-</span></span><span id="224" class="l"><a href="#224">224 </a><span class="php-comment">    */</span>
-</span><span id="225" class="l"><a href="#225">225 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> itauContaCorrente(<span class="php-var">$agencia</span>, <span class="php-var">$contaCorrente</span>)
-</span><span id="226" class="l"><a href="#226">226 </a>    {
-</span><span id="227" class="l"><a href="#227">227 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
-</span><span id="228" class="l"><a href="#228">228 </a>            . Util::numberFormatGeral(<span class="php-var">$contaCorrente</span>, <span class="php-num">5</span>);
-</span><span id="229" class="l"><a href="#229">229 </a>        <span class="php-keyword1">return</span> Util::modulo10(<span class="php-var">$n</span>);
+</span><span id="220" class="l"><a href="#220">220 </a>    
+</span><span id="221" class="l"><a href="#221">221 </a>    <span class="php-comment">/*
+</span></span><span id="222" class="l"><a href="#222">222 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="223" class="l"><a href="#223">223 </a><span class="php-comment">    | 329 - Qiscd
+</span></span><span id="224" class="l"><a href="#224">224 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="225" class="l"><a href="#225">225 </a><span class="php-comment">    */</span>
+</span><span id="226" class="l"><a href="#226">226 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> qiscdAgencia(<span class="php-var">$agencia</span>)
+</span><span id="227" class="l"><a href="#227">227 </a>    {
+</span><span id="228" class="l"><a href="#228">228 </a>        <span class="php-var">$dv</span> = Util::modulo11(<span class="php-var">$agencia</span>, <span class="php-num">2</span>, <span class="php-num">9</span>, <span class="php-num">0</span>, <span class="php-quote">'P'</span>);
+</span><span id="229" class="l"><a href="#229">229 </a>        <span class="php-keyword1">return</span> <span class="php-var">$dv</span> == <span class="php-num">11</span> ? <span class="php-num">0</span> : <span class="php-var">$dv</span>;
 </span><span id="230" class="l"><a href="#230">230 </a>    }
 </span><span id="231" class="l"><a href="#231">231 </a>
-</span><span id="232" class="l"><a href="#232">232 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> itauNossoNumero(<span class="php-var">$agencia</span>, <span class="php-var">$conta</span>, <span class="php-var">$carteira</span>, <span class="php-var">$numero_boleto</span>)
+</span><span id="232" class="l"><a href="#232">232 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> qiscdContaCorrente(<span class="php-var">$contaCorrente</span>)
 </span><span id="233" class="l"><a href="#233">233 </a>    {
-</span><span id="234" class="l"><a href="#234">234 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
-</span><span id="235" class="l"><a href="#235">235 </a>            . Util::numberFormatGeral(<span class="php-var">$conta</span>, <span class="php-num">5</span>)
-</span><span id="236" class="l"><a href="#236">236 </a>            . Util::numberFormatGeral(<span class="php-var">$carteira</span>, <span class="php-num">3</span>)
-</span><span id="237" class="l"><a href="#237">237 </a>            . Util::numberFormatGeral(<span class="php-var">$numero_boleto</span>, <span class="php-num">8</span>);
-</span><span id="238" class="l"><a href="#238">238 </a>        <span class="php-keyword1">return</span> Util::modulo10(<span class="php-var">$n</span>);
-</span><span id="239" class="l"><a href="#239">239 </a>    }
-</span><span id="240" class="l"><a href="#240">240 </a>
-</span><span id="241" class="l"><a href="#241">241 </a>    <span class="php-comment">/*
-</span></span><span id="242" class="l"><a href="#242">242 </a><span class="php-comment">    |--------------------------------------------------------------------------
-</span></span><span id="243" class="l"><a href="#243">243 </a><span class="php-comment">    | 748 - Sicredi - Falta o calculo agencia e conta
+</span><span id="234" class="l"><a href="#234">234 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$contaCorrente</span>, <span class="php-num">2</span>, <span class="php-num">9</span>, <span class="php-num">0</span>, <span class="php-quote">'P'</span>);
+</span><span id="235" class="l"><a href="#235">235 </a>    }
+</span><span id="236" class="l"><a href="#236">236 </a>
+</span><span id="237" class="l"><a href="#237">237 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> qiscdNossoNumero(<span class="php-var">$carteira</span>, <span class="php-var">$nossoNumero</span>)
+</span><span id="238" class="l"><a href="#238">238 </a>    {
+</span><span id="239" class="l"><a href="#239">239 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$carteira</span> . Util::numberFormatGeral(<span class="php-var">$nossoNumero</span>, <span class="php-num">11</span>), <span class="php-num">2</span>, <span class="php-num">7</span>, <span class="php-num">0</span>, <span class="php-quote">'P'</span>);
+</span><span id="240" class="l"><a href="#240">240 </a>    }
+</span><span id="241" class="l"><a href="#241">241 </a>
+</span><span id="242" class="l"><a href="#242">242 </a>    
+</span><span id="243" class="l"><a href="#243">243 </a>    <span class="php-comment">/*
 </span></span><span id="244" class="l"><a href="#244">244 </a><span class="php-comment">    |--------------------------------------------------------------------------
-</span></span><span id="245" class="l"><a href="#245">245 </a><span class="php-comment">    */</span>
-</span><span id="246" class="l"><a href="#246">246 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> sicrediNossoNumero(<span class="php-var">$agencia</span>, <span class="php-var">$posto</span>, <span class="php-var">$codigoCliente</span>, <span class="php-var">$ano</span>, <span class="php-var">$byte</span>, <span class="php-var">$numero_boleto</span>)
-</span><span id="247" class="l"><a href="#247">247 </a>    {
-</span><span id="248" class="l"><a href="#248">248 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
-</span><span id="249" class="l"><a href="#249">249 </a>            . Util::numberFormatGeral(<span class="php-var">$posto</span>, <span class="php-num">2</span>)
-</span><span id="250" class="l"><a href="#250">250 </a>            . Util::numberFormatGeral(<span class="php-var">$codigoCliente</span>, <span class="php-num">5</span>)
-</span><span id="251" class="l"><a href="#251">251 </a>            . Util::numberFormatGeral(<span class="php-var">$ano</span>, <span class="php-num">2</span>)
-</span><span id="252" class="l"><a href="#252">252 </a>            . Util::numberFormatGeral(<span class="php-var">$byte</span>, <span class="php-num">1</span>)
-</span><span id="253" class="l"><a href="#253">253 </a>            . Util::numberFormatGeral(<span class="php-var">$numero_boleto</span>, <span class="php-num">5</span>);
-</span><span id="254" class="l"><a href="#254">254 </a>        <span class="php-keyword1">return</span>  Util::modulo11(<span class="php-var">$n</span>);
-</span><span id="255" class="l"><a href="#255">255 </a>    }
-</span><span id="256" class="l"><a href="#256">256 </a>
-</span><span id="257" class="l"><a href="#257">257 </a>    <span class="php-comment">/*
-</span></span><span id="258" class="l"><a href="#258">258 </a><span class="php-comment">    |--------------------------------------------------------------------------
-</span></span><span id="259" class="l"><a href="#259">259 </a><span class="php-comment">    | 756 - Bancoob - Falta o calculo conta e confirmar agencia
-</span></span><span id="260" class="l"><a href="#260">260 </a><span class="php-comment">    |--------------------------------------------------------------------------
-</span></span><span id="261" class="l"><a href="#261">261 </a><span class="php-comment">    */</span>
-</span><span id="262" class="l"><a href="#262">262 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> bancoobAgencia(<span class="php-var">$agencia</span>)
-</span><span id="263" class="l"><a href="#263">263 </a>    {
-</span><span id="264" class="l"><a href="#264">264 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$agencia</span>);
-</span><span id="265" class="l"><a href="#265">265 </a>    }
-</span><span id="266" class="l"><a href="#266">266 </a>
-</span><span id="267" class="l"><a href="#267">267 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> bancoobContaCorrente(<span class="php-var">$contaCorrente</span>)
-</span><span id="268" class="l"><a href="#268">268 </a>    {
-</span><span id="269" class="l"><a href="#269">269 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$contaCorrente</span>);
-</span><span id="270" class="l"><a href="#270">270 </a>    }
-</span><span id="271" class="l"><a href="#271">271 </a>
-</span><span id="272" class="l"><a href="#272">272 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> bancoobNossoNumero(<span class="php-var">$agencia</span>, <span class="php-var">$convenio</span>, <span class="php-var">$numero_boleto</span>)
-</span><span id="273" class="l"><a href="#273">273 </a>    {
-</span><span id="274" class="l"><a href="#274">274 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
-</span><span id="275" class="l"><a href="#275">275 </a>            . Util::numberFormatGeral(<span class="php-var">$convenio</span>, <span class="php-num">10</span>)
-</span><span id="276" class="l"><a href="#276">276 </a>            . Util::numberFormatGeral(<span class="php-var">$numero_boleto</span>, <span class="php-num">7</span>);
-</span><span id="277" class="l"><a href="#277">277 </a>
-</span><span id="278" class="l"><a href="#278">278 </a>        <span class="php-var">$chars</span> = <span class="php-keyword2">str_split</span>(<span class="php-var">$n</span>, <span class="php-num">1</span>);
-</span><span id="279" class="l"><a href="#279">279 </a>        <span class="php-var">$sums</span> = <span class="php-keyword2">str_split</span>(<span class="php-quote">'3197319731973197319731973197'</span>, <span class="php-num">1</span>);
-</span><span id="280" class="l"><a href="#280">280 </a>        <span class="php-var">$sum</span> = <span class="php-num">0</span>;
-</span><span id="281" class="l"><a href="#281">281 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$chars</span> <span class="php-keyword1">as</span> <span class="php-var">$i</span> =&gt; <span class="php-var">$char</span>) {
-</span><span id="282" class="l"><a href="#282">282 </a>            <span class="php-var">$sum</span> += <span class="php-var">$char</span>*<span class="php-var">$sums</span>[<span class="php-var">$i</span>];
-</span><span id="283" class="l"><a href="#283">283 </a>        }
-</span><span id="284" class="l"><a href="#284">284 </a>        <span class="php-var">$resto</span> = <span class="php-var">$sum</span> % <span class="php-num">11</span>;
-</span><span id="285" class="l"><a href="#285">285 </a>        <span class="php-var">$dv</span> = <span class="php-num">0</span>;
-</span><span id="286" class="l"><a href="#286">286 </a>
-</span><span id="287" class="l"><a href="#287">287 </a>        <span class="php-keyword1">if</span> ((<span class="php-var">$resto</span> != <span class="php-num">0</span>) &amp;&amp; (<span class="php-var">$resto</span> != <span class="php-num">1</span>)) {
-</span><span id="288" class="l"><a href="#288">288 </a>            <span class="php-var">$dv</span> = <span class="php-num">11</span> - <span class="php-var">$resto</span>;
-</span><span id="289" class="l"><a href="#289">289 </a>        }
-</span><span id="290" class="l"><a href="#290">290 </a>        <span class="php-keyword1">return</span>  <span class="php-var">$dv</span>;
-</span><span id="291" class="l"><a href="#291">291 </a>    }
-</span><span id="292" class="l"><a href="#292">292 </a>
-</span><span id="293" class="l"><a href="#293">293 </a>
-</span><span id="294" class="l"><a href="#294">294 </a>    <span class="php-comment">/**
-</span></span><span id="295" class="l"><a href="#295">295 </a><span class="php-comment">     * -------------------------------------------------------------------
-</span></span><span id="296" class="l"><a href="#296">296 </a><span class="php-comment">     * 756 - Unicred
-</span></span><span id="297" class="l"><a href="#297">297 </a><span class="php-comment">     * -------------------------------------------------------------------
-</span></span><span id="298" class="l"><a href="#298">298 </a><span class="php-comment">     */</span>
-</span><span id="299" class="l"><a href="#299">299 </a>
-</span><span id="300" class="l"><a href="#300">300 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> unicredCodigoBarra(<span class="php-var">$numero</span>)
-</span><span id="301" class="l"><a href="#301">301 </a>    {
-</span><span id="302" class="l"><a href="#302">302 </a>
-</span><span id="303" class="l"><a href="#303">303 </a>        <span class="php-var">$digitoVerificador</span> = Util::modulo11(<span class="php-var">$numero</span>);
-</span><span id="304" class="l"><a href="#304">304 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$digitoVerificador</span> == <span class="php-num">0</span> || <span class="php-var">$digitoVerificador</span> &gt; <span class="php-num">9</span>)
-</span><span id="305" class="l"><a href="#305">305 </a>            <span class="php-var">$digitoVerificador</span> = <span class="php-num">1</span>;
-</span><span id="306" class="l"><a href="#306">306 </a>        <span class="php-keyword1">return</span> <span class="php-var">$digitoVerificador</span>;
-</span><span id="307" class="l"><a href="#307">307 </a>    }
-</span><span id="308" class="l"><a href="#308">308 </a>
-</span><span id="309" class="l"><a href="#309">309 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> unicredNossoNumero(<span class="php-var">$numero</span>)
-</span><span id="310" class="l"><a href="#310">310 </a>    {
-</span><span id="311" class="l"><a href="#311">311 </a>        <span class="php-var">$variavelParaOCalculo</span> = Util::numberFormatGeral(<span class="php-var">$numero</span>, <span class="php-num">10</span>);
-</span><span id="312" class="l"><a href="#312">312 </a>        <span class="php-var">$constanteParaCalculo</span> = <span class="php-quote">'3298765432'</span>;
-</span><span id="313" class="l"><a href="#313">313 </a>
-</span><span id="314" class="l"><a href="#314">314 </a>        <span class="php-var">$soma</span> = <span class="php-num">0</span>;
-</span><span id="315" class="l"><a href="#315">315 </a>        <span class="php-keyword1">for</span> (<span class="php-var">$contador</span> = <span class="php-num">0</span>; <span class="php-var">$contador</span> &lt; <span class="php-num">10</span>; <span class="php-var">$contador</span>++) {
-</span><span id="316" class="l"><a href="#316">316 </a>            <span class="php-var">$soma</span> += <span class="php-var">$variavelParaOCalculo</span>[<span class="php-var">$contador</span>] * <span class="php-var">$constanteParaCalculo</span>[<span class="php-var">$contador</span>];
-</span><span id="317" class="l"><a href="#317">317 </a>        }
-</span><span id="318" class="l"><a href="#318">318 </a>
-</span><span id="319" class="l"><a href="#319">319 </a>        <span class="php-var">$restoDivisao</span> = <span class="php-var">$soma</span> % <span class="php-num">11</span>;
-</span><span id="320" class="l"><a href="#320">320 </a>
-</span><span id="321" class="l"><a href="#321">321 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$restoDivisao</span> == <span class="php-num">1</span> || <span class="php-var">$restoDivisao</span> == <span class="php-num">0</span>)
-</span><span id="322" class="l"><a href="#322">322 </a>            <span class="php-var">$digitoVerificador</span> = <span class="php-num">0</span>;
-</span><span id="323" class="l"><a href="#323">323 </a>        <span class="php-keyword1">else</span>
-</span><span id="324" class="l"><a href="#324">324 </a>            <span class="php-var">$digitoVerificador</span> = <span class="php-num">11</span> - <span class="php-var">$restoDivisao</span>;
-</span><span id="325" class="l"><a href="#325">325 </a>        <span class="php-keyword1">return</span> <span class="php-var">$digitoVerificador</span>;
-</span><span id="326" class="l"><a href="#326">326 </a>    }
-</span><span id="327" class="l"><a href="#327">327 </a>
-</span><span id="328" class="l"><a href="#328">328 </a>}
-</span><span id="329" class="l"><a href="#329">329 </a></span></code></pre>
+</span></span><span id="245" class="l"><a href="#245">245 </a><span class="php-comment">    | 341 - Itau
+</span></span><span id="246" class="l"><a href="#246">246 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="247" class="l"><a href="#247">247 </a><span class="php-comment">    */</span>
+</span><span id="248" class="l"><a href="#248">248 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> itauContaCorrente(<span class="php-var">$agencia</span>, <span class="php-var">$contaCorrente</span>)
+</span><span id="249" class="l"><a href="#249">249 </a>    {
+</span><span id="250" class="l"><a href="#250">250 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
+</span><span id="251" class="l"><a href="#251">251 </a>            . Util::numberFormatGeral(<span class="php-var">$contaCorrente</span>, <span class="php-num">5</span>);
+</span><span id="252" class="l"><a href="#252">252 </a>        <span class="php-keyword1">return</span> Util::modulo10(<span class="php-var">$n</span>);
+</span><span id="253" class="l"><a href="#253">253 </a>    }
+</span><span id="254" class="l"><a href="#254">254 </a>
+</span><span id="255" class="l"><a href="#255">255 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> itauNossoNumero(<span class="php-var">$agencia</span>, <span class="php-var">$conta</span>, <span class="php-var">$carteira</span>, <span class="php-var">$numero_boleto</span>)
+</span><span id="256" class="l"><a href="#256">256 </a>    {
+</span><span id="257" class="l"><a href="#257">257 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
+</span><span id="258" class="l"><a href="#258">258 </a>            . Util::numberFormatGeral(<span class="php-var">$conta</span>, <span class="php-num">5</span>)
+</span><span id="259" class="l"><a href="#259">259 </a>            . Util::numberFormatGeral(<span class="php-var">$carteira</span>, <span class="php-num">3</span>)
+</span><span id="260" class="l"><a href="#260">260 </a>            . Util::numberFormatGeral(<span class="php-var">$numero_boleto</span>, <span class="php-num">8</span>);
+</span><span id="261" class="l"><a href="#261">261 </a>        <span class="php-keyword1">return</span> Util::modulo10(<span class="php-var">$n</span>);
+</span><span id="262" class="l"><a href="#262">262 </a>    }
+</span><span id="263" class="l"><a href="#263">263 </a>
+</span><span id="264" class="l"><a href="#264">264 </a>    <span class="php-comment">/*
+</span></span><span id="265" class="l"><a href="#265">265 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="266" class="l"><a href="#266">266 </a><span class="php-comment">    | 748 - Sicredi - Falta o calculo agencia e conta
+</span></span><span id="267" class="l"><a href="#267">267 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="268" class="l"><a href="#268">268 </a><span class="php-comment">    */</span>
+</span><span id="269" class="l"><a href="#269">269 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> sicrediNossoNumero(<span class="php-var">$agencia</span>, <span class="php-var">$posto</span>, <span class="php-var">$codigoCliente</span>, <span class="php-var">$ano</span>, <span class="php-var">$byte</span>, <span class="php-var">$numero_boleto</span>)
+</span><span id="270" class="l"><a href="#270">270 </a>    {
+</span><span id="271" class="l"><a href="#271">271 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
+</span><span id="272" class="l"><a href="#272">272 </a>            . Util::numberFormatGeral(<span class="php-var">$posto</span>, <span class="php-num">2</span>)
+</span><span id="273" class="l"><a href="#273">273 </a>            . Util::numberFormatGeral(<span class="php-var">$codigoCliente</span>, <span class="php-num">5</span>)
+</span><span id="274" class="l"><a href="#274">274 </a>            . Util::numberFormatGeral(<span class="php-var">$ano</span>, <span class="php-num">2</span>)
+</span><span id="275" class="l"><a href="#275">275 </a>            . Util::numberFormatGeral(<span class="php-var">$byte</span>, <span class="php-num">1</span>)
+</span><span id="276" class="l"><a href="#276">276 </a>            . Util::numberFormatGeral(<span class="php-var">$numero_boleto</span>, <span class="php-num">5</span>);
+</span><span id="277" class="l"><a href="#277">277 </a>        <span class="php-keyword1">return</span>  Util::modulo11(<span class="php-var">$n</span>);
+</span><span id="278" class="l"><a href="#278">278 </a>    }
+</span><span id="279" class="l"><a href="#279">279 </a>
+</span><span id="280" class="l"><a href="#280">280 </a>    <span class="php-comment">/*
+</span></span><span id="281" class="l"><a href="#281">281 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="282" class="l"><a href="#282">282 </a><span class="php-comment">    | 756 - Bancoob - Falta o calculo conta e confirmar agencia
+</span></span><span id="283" class="l"><a href="#283">283 </a><span class="php-comment">    |--------------------------------------------------------------------------
+</span></span><span id="284" class="l"><a href="#284">284 </a><span class="php-comment">    */</span>
+</span><span id="285" class="l"><a href="#285">285 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> bancoobAgencia(<span class="php-var">$agencia</span>)
+</span><span id="286" class="l"><a href="#286">286 </a>    {
+</span><span id="287" class="l"><a href="#287">287 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$agencia</span>);
+</span><span id="288" class="l"><a href="#288">288 </a>    }
+</span><span id="289" class="l"><a href="#289">289 </a>
+</span><span id="290" class="l"><a href="#290">290 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> bancoobContaCorrente(<span class="php-var">$contaCorrente</span>)
+</span><span id="291" class="l"><a href="#291">291 </a>    {
+</span><span id="292" class="l"><a href="#292">292 </a>        <span class="php-keyword1">return</span> Util::modulo11(<span class="php-var">$contaCorrente</span>);
+</span><span id="293" class="l"><a href="#293">293 </a>    }
+</span><span id="294" class="l"><a href="#294">294 </a>
+</span><span id="295" class="l"><a href="#295">295 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> bancoobNossoNumero(<span class="php-var">$agencia</span>, <span class="php-var">$convenio</span>, <span class="php-var">$numero_boleto</span>)
+</span><span id="296" class="l"><a href="#296">296 </a>    {
+</span><span id="297" class="l"><a href="#297">297 </a>        <span class="php-var">$n</span> = Util::numberFormatGeral(<span class="php-var">$agencia</span>, <span class="php-num">4</span>)
+</span><span id="298" class="l"><a href="#298">298 </a>            . Util::numberFormatGeral(<span class="php-var">$convenio</span>, <span class="php-num">10</span>)
+</span><span id="299" class="l"><a href="#299">299 </a>            . Util::numberFormatGeral(<span class="php-var">$numero_boleto</span>, <span class="php-num">7</span>);
+</span><span id="300" class="l"><a href="#300">300 </a>
+</span><span id="301" class="l"><a href="#301">301 </a>        <span class="php-var">$chars</span> = <span class="php-keyword2">str_split</span>(<span class="php-var">$n</span>, <span class="php-num">1</span>);
+</span><span id="302" class="l"><a href="#302">302 </a>        <span class="php-var">$sums</span> = <span class="php-keyword2">str_split</span>(<span class="php-quote">'3197319731973197319731973197'</span>, <span class="php-num">1</span>);
+</span><span id="303" class="l"><a href="#303">303 </a>        <span class="php-var">$sum</span> = <span class="php-num">0</span>;
+</span><span id="304" class="l"><a href="#304">304 </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$chars</span> <span class="php-keyword1">as</span> <span class="php-var">$i</span> =&gt; <span class="php-var">$char</span>) {
+</span><span id="305" class="l"><a href="#305">305 </a>            <span class="php-var">$sum</span> += <span class="php-var">$char</span>*<span class="php-var">$sums</span>[<span class="php-var">$i</span>];
+</span><span id="306" class="l"><a href="#306">306 </a>        }
+</span><span id="307" class="l"><a href="#307">307 </a>        <span class="php-var">$resto</span> = <span class="php-var">$sum</span> % <span class="php-num">11</span>;
+</span><span id="308" class="l"><a href="#308">308 </a>        <span class="php-var">$dv</span> = <span class="php-num">0</span>;
+</span><span id="309" class="l"><a href="#309">309 </a>
+</span><span id="310" class="l"><a href="#310">310 </a>        <span class="php-keyword1">if</span> ((<span class="php-var">$resto</span> != <span class="php-num">0</span>) &amp;&amp; (<span class="php-var">$resto</span> != <span class="php-num">1</span>)) {
+</span><span id="311" class="l"><a href="#311">311 </a>            <span class="php-var">$dv</span> = <span class="php-num">11</span> - <span class="php-var">$resto</span>;
+</span><span id="312" class="l"><a href="#312">312 </a>        }
+</span><span id="313" class="l"><a href="#313">313 </a>        <span class="php-keyword1">return</span>  <span class="php-var">$dv</span>;
+</span><span id="314" class="l"><a href="#314">314 </a>    }
+</span><span id="315" class="l"><a href="#315">315 </a>
+</span><span id="316" class="l"><a href="#316">316 </a>
+</span><span id="317" class="l"><a href="#317">317 </a>    <span class="php-comment">/**
+</span></span><span id="318" class="l"><a href="#318">318 </a><span class="php-comment">     * -------------------------------------------------------------------
+</span></span><span id="319" class="l"><a href="#319">319 </a><span class="php-comment">     * 756 - Unicred
+</span></span><span id="320" class="l"><a href="#320">320 </a><span class="php-comment">     * -------------------------------------------------------------------
+</span></span><span id="321" class="l"><a href="#321">321 </a><span class="php-comment">     */</span>
+</span><span id="322" class="l"><a href="#322">322 </a>
+</span><span id="323" class="l"><a href="#323">323 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> unicredCodigoBarra(<span class="php-var">$numero</span>)
+</span><span id="324" class="l"><a href="#324">324 </a>    {
+</span><span id="325" class="l"><a href="#325">325 </a>
+</span><span id="326" class="l"><a href="#326">326 </a>        <span class="php-var">$digitoVerificador</span> = Util::modulo11(<span class="php-var">$numero</span>);
+</span><span id="327" class="l"><a href="#327">327 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$digitoVerificador</span> == <span class="php-num">0</span> || <span class="php-var">$digitoVerificador</span> &gt; <span class="php-num">9</span>)
+</span><span id="328" class="l"><a href="#328">328 </a>            <span class="php-var">$digitoVerificador</span> = <span class="php-num">1</span>;
+</span><span id="329" class="l"><a href="#329">329 </a>        <span class="php-keyword1">return</span> <span class="php-var">$digitoVerificador</span>;
+</span><span id="330" class="l"><a href="#330">330 </a>    }
+</span><span id="331" class="l"><a href="#331">331 </a>
+</span><span id="332" class="l"><a href="#332">332 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> unicredNossoNumero(<span class="php-var">$numero</span>)
+</span><span id="333" class="l"><a href="#333">333 </a>    {
+</span><span id="334" class="l"><a href="#334">334 </a>        <span class="php-var">$variavelParaOCalculo</span> = Util::numberFormatGeral(<span class="php-var">$numero</span>, <span class="php-num">10</span>);
+</span><span id="335" class="l"><a href="#335">335 </a>        <span class="php-var">$constanteParaCalculo</span> = <span class="php-quote">'3298765432'</span>;
+</span><span id="336" class="l"><a href="#336">336 </a>
+</span><span id="337" class="l"><a href="#337">337 </a>        <span class="php-var">$soma</span> = <span class="php-num">0</span>;
+</span><span id="338" class="l"><a href="#338">338 </a>        <span class="php-keyword1">for</span> (<span class="php-var">$contador</span> = <span class="php-num">0</span>; <span class="php-var">$contador</span> &lt; <span class="php-num">10</span>; <span class="php-var">$contador</span>++) {
+</span><span id="339" class="l"><a href="#339">339 </a>            <span class="php-var">$soma</span> += <span class="php-var">$variavelParaOCalculo</span>[<span class="php-var">$contador</span>] * <span class="php-var">$constanteParaCalculo</span>[<span class="php-var">$contador</span>];
+</span><span id="340" class="l"><a href="#340">340 </a>        }
+</span><span id="341" class="l"><a href="#341">341 </a>
+</span><span id="342" class="l"><a href="#342">342 </a>        <span class="php-var">$restoDivisao</span> = <span class="php-var">$soma</span> % <span class="php-num">11</span>;
+</span><span id="343" class="l"><a href="#343">343 </a>
+</span><span id="344" class="l"><a href="#344">344 </a>        <span class="php-keyword1">if</span> (<span class="php-var">$restoDivisao</span> == <span class="php-num">1</span> || <span class="php-var">$restoDivisao</span> == <span class="php-num">0</span>)
+</span><span id="345" class="l"><a href="#345">345 </a>            <span class="php-var">$digitoVerificador</span> = <span class="php-num">0</span>;
+</span><span id="346" class="l"><a href="#346">346 </a>        <span class="php-keyword1">else</span>
+</span><span id="347" class="l"><a href="#347">347 </a>            <span class="php-var">$digitoVerificador</span> = <span class="php-num">11</span> - <span class="php-var">$restoDivisao</span>;
+</span><span id="348" class="l"><a href="#348">348 </a>        <span class="php-keyword1">return</span> <span class="php-var">$digitoVerificador</span>;
+</span><span id="349" class="l"><a href="#349">349 </a>    }
+</span><span id="350" class="l"><a href="#350">350 </a>
+</span><span id="351" class="l"><a href="#351">351 </a>}
+</span><span id="352" class="l"><a href="#352">352 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
@@ -614,6 +640,6 @@
 	</div>
 </div>
 <script src="resources/combined.js?37f5d759fe32f60cc17740b3227f181b983a8f0b"></script>
-<script src="elementlist.js?2a8ed4730c8aa105f17d1db3d670f3765ca5fbef"></script>
+<script src="elementlist.js?fb263b83df2c9fd9fc891553296c7e1ba8a7160d"></script>
 </body>
 </html>
