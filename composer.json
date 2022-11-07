@@ -17,13 +17,13 @@
         "php": ">7.4",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^5.0||^6.0",
         "neitanod/forceutf8": "^2.0",
         "setasign/fpdf": "^1.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0",
-        "orchestra/testbench": "*"
+        "phpunit/phpunit": ">=6.0||^8.0||^9.0",
+        "orchestra/testbench": "^3.1"
     },
     "autoload": {
         "psr-4": {
