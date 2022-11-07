@@ -22,7 +22,7 @@ jobs:
         include:
           - os: ubuntu
             php: "7.4"
-            laravel: "8.*"
+            laravel: "7.*"
     runs-on: ${{ matrix.os }}-latest
     name: LRV ${{ matrix.laravel }} (${{ matrix.os }})
     steps:
