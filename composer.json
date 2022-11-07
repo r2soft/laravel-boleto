@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": ">7.4.0",
+        "php": ">7.4",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "laravel/framework": "^8.0",
@@ -33,11 +33,6 @@
     "autoload-dev": {
         "psr-4": {
             "Eduardokum\\LaravelBoleto\\Tests\\": "tests"
-        }
-    },
-    "config": {
-        "platform": {
-            "php": "7.4.*"
         }
     }
 }
