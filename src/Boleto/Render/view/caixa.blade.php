@@ -96,7 +96,7 @@
                     <div class="conteudo">{{ $beneficiario['endereco'] }} | {{ $beneficiario['endereco2'] }}</div>
                 </td>
                 <td width="130">
-                    <div class="titulo">(-) Descontos / Abatimentos</div>
+                    <div class="titulo">(-) Desconto</div>
                     <div class="conteudo rtl"></div>
                 </td>
             </tr>
@@ -110,7 +110,7 @@
                     <div style="margin-bottom: 10px;" class="conteudo">{{ $demonstrativo[4] }}</div>
                 </td>
                 <td width="130">
-                    <div class="titulo">(-) Outras deduções</div>
+                    <div class="titulo">(-) Outras Deduções/Abatimento</div>
                     <div class="conteudo rtl"></div>
                 </td>
             </tr>

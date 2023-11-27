@@ -64,9 +64,9 @@
                 <div class="titulo">Uso do banco</div>
                 <div class="conteudo">{{ $uso_banco }}</div>
             </td>
-            @endif
-            @if (isset($mostra_cip) && $mostra_cip)
-                    <!-- Campo exclusivo do Bradesco -->
+        @endif
+        @if (isset($mostra_cip) && $mostra_cip)
+            <!-- Campo exclusivo do Bradesco -->
             <td width="20">
                 <div class="titulo">CIP</div>
                 <div class="conteudo">{{ $cip }}</div>
@@ -119,7 +119,7 @@
             <div class="conteudo">{{ $instrucoes[3] }}</div>
         </td>
         <td>
-            <div class="titulo">(+) Mora / Multa {{ $codigo_banco == '104' ? '/ Juros' : '' }}</div>
+            <div class="titulo">(+) Mora / Multa {{ $codigo_banco == '104' ? '(+) Mora/Multa/Juros' : '' }}</div>
             <div class="conteudo rtl"></div>
         </td>
     </tr>
