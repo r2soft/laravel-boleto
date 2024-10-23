@@ -217,7 +217,7 @@ class CalculoDV
         return Util::modulo11($carteira . Util::numberFormatGeral($nossoNumero, 11), 2, 7, 0, 'P');
     }
 
-    
+
     /*
     |--------------------------------------------------------------------------
     | 329 - Qiscd
@@ -239,7 +239,7 @@ class CalculoDV
         return Util::modulo11($carteira . Util::numberFormatGeral($nossoNumero, 11), 2, 7, 0, 'P');
     }
 
-    
+
     /*
     |--------------------------------------------------------------------------
     | 341 - Itau
@@ -348,4 +348,12 @@ class CalculoDV
         return $digitoVerificador;
     }
 
+    public static function sisprimeNossoNumero($agencia, $conta, $carteira, $numero_boleto)
+    {
+        $n = Util::numberFormatGeral($agencia, 4)
+            . Util::numberFormatGeral($conta, 5)
+            . Util::numberFormatGeral($carteira, 3)
+            . Util::numberFormatGeral($numero_boleto, 10);
+        return Util::modulo11($n);
+    }
 }

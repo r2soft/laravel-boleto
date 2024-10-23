@@ -18,6 +18,7 @@ interface Boleto
     const COD_BANCO_BNB = '004';
     const COD_BANCO_UNICRED = '136';
     const COD_BANCO_BRB = '070';
+    const COD_BANCO_SISPRIME = '084';
 
     const STATUS_REGISTRO = 1;
     const STATUS_ALTERACAO = 2;
@@ -102,7 +103,7 @@ interface Boleto
      * @return \Carbon\Carbon
      */
     public function getDataVencimento();
-    
+
     /**
      * @return \Carbon\Carbon
      */

@@ -138,6 +138,7 @@ final class Util
         '409' => 'UNIBANCO - União de Bancos Brasileiros S.A.',
         '230' => 'Unicard Banco Múltiplo S.A.',
         '329' => 'QISCD - QI Sociedade de Crédito Direto S.A.',
+        '084' => 'Sisprime do brasil',
         'XXX' => 'Desconhecido',
     ];
 
@@ -1010,6 +1011,7 @@ final class Util
             BoletoContract::COD_BANCO_BANRISUL => 'Banco\\Banrisul',
             BoletoContract::COD_BANCO_BANCOOB => 'Banco\\Bancoob',
             BoletoContract::COD_BANCO_BNB => 'Banco\\Bnb',
+            BoletoContract::COD_BANCO_SISPRIME => 'Banco\\Sisprime',
         ];
 
         if (array_key_exists($banco, $aBancos)) {
