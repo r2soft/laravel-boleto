@@ -348,12 +348,27 @@ class CalculoDV
         return $digitoVerificador;
     }
 
+    /*
+  |--------------------------------------------------------------------------
+  | 084 - Sisprime
+  |--------------------------------------------------------------------------
+  */
+
+    public static function sisprimeCodigoBarra($numero)
+    {
+        $digitoVerificador = Util::modulo11($numero);
+        if ($digitoVerificador == 0 || $digitoVerificador > 9)
+            $digitoVerificador = 1;
+        return $digitoVerificador;
+    }
+
+
     public static function sisprimeNossoNumero($agencia, $conta, $carteira, $numero_boleto)
     {
         $n = Util::numberFormatGeral($agencia, 4)
             . Util::numberFormatGeral($conta, 5)
             . Util::numberFormatGeral($carteira, 3)
             . Util::numberFormatGeral($numero_boleto, 10);
-        return Util::modulo11($n);
+        return Util::modulo11($n, '2',  9, 0,'P');
     }
 }

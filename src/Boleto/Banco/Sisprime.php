@@ -36,13 +36,13 @@ class Sisprime extends AbstractBoleto implements BoletoContract
      *
      * @var array
      */
-    protected $carteiras = [ '009' ];
+    protected $carteiras = ['009'];
 
     /**
      * Define a espécie do documento
      * @var string
      */
-    protected $especieDoc = "DM";
+    protected $especieDoc = 'DM';
 
     /**
      * Método onde o Boleto deverá gerar o Nosso Número.
@@ -56,7 +56,7 @@ class Sisprime extends AbstractBoleto implements BoletoContract
         $agencia = Util::numberFormatGeral($this->getAgencia(), 4);
         $conta = Util::numberFormatGeral($this->getConta(), 5);
         $dv = CalculoDV::sisprimeNossoNumero($agencia, $conta, $carteira, $numero_boleto);
-        return $carteira.$numero_boleto.$dv;
+        return $carteira . $numero_boleto . $dv;
     }
 
     /**
@@ -130,7 +130,7 @@ class Sisprime extends AbstractBoleto implements BoletoContract
             . Util::numberFormatGeral($this->getValor(), 10)
             . $this->getCampoLivre();
 
-        $dv = CalculoDV::unicredCodigoBarra($codigo);
+        $dv = CalculoDV::sisprimeCodigoBarra($codigo);
         return $this->campoCodigoBarras = substr($codigo, 0, 4) . $dv . substr($codigo, 4);
     }
 

@@ -613,8 +613,8 @@ abstract class AbstractBoleto implements BoletoContract
     {
         return $this->dataDocumento;
     }
-	
-   /**
+
+    /**
      * Retorna a data do juros após
      *
      * @return \Carbon\Carbon
@@ -627,7 +627,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o campo aceite
      *
-     * @param  string $aceite
+     * @param string $aceite
      *
      * @return AbstractBoleto
      */
@@ -651,7 +651,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o campo Espécie Doc, geralmente DM (Duplicata Mercantil)
      *
-     * @param  string $especieDoc
+     * @param string $especieDoc
      *
      * @return AbstractBoleto
      */
@@ -684,7 +684,7 @@ abstract class AbstractBoleto implements BoletoContract
     {
         if (!empty($this->especiesCodigo240) && $tipo == 240) {
             $especie = $this->especiesCodigo240;
-        } elseif(!empty($this->especiesCodigo400) && $tipo == 400) {
+        } elseif (!empty($this->especiesCodigo400) && $tipo == 400) {
             $especie = $this->especiesCodigo400;
         } else {
             $especie = $this->especiesCodigo;
@@ -697,7 +697,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o campo Número do documento
      *
-     * @param  int $numeroDocumento
+     * @param int $numeroDocumento
      *
      * @return AbstractBoleto
      */
@@ -721,7 +721,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o número  definido pelo cliente para compor o nosso número
      *
-     * @param  int $numero
+     * @param int $numero
      *
      * @return AbstractBoleto
      */
@@ -745,7 +745,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o número  definido pelo cliente para controle da remessa
      *
-     * @param  string $numeroControle
+     * @param string $numeroControle
      *
      * @return AbstractBoleto
      */
@@ -769,7 +769,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o campo Uso do banco
      *
-     * @param  string $usoBanco
+     * @param string $usoBanco
      *
      * @return AbstractBoleto
      */
@@ -793,7 +793,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define a data de geração do boleto
      *
-     * @param  \Carbon\Carbon $dataProcessamento
+     * @param \Carbon\Carbon $dataProcessamento
      *
      * @return AbstractBoleto
      */
@@ -857,7 +857,7 @@ abstract class AbstractBoleto implements BoletoContract
      */
     public function getInstrucoes()
     {
-        return array_slice((array)$this->instrucoes + [null, null, null, null, null, null, null, null], 0, 8);
+        return array_slice((array) $this->instrucoes + [null, null, null, null, null, null, null, null], 0, 8);
     }
 
     /**
@@ -886,7 +886,7 @@ abstract class AbstractBoleto implements BoletoContract
     public function getInstrucoesImpressao()
     {
         if (!empty($this->instrucoes_impressao))
-            return array_slice((array)$this->instrucoes_impressao + [null, null, null, null, null], 0, 5);
+            return array_slice((array) $this->instrucoes_impressao + [null, null, null, null, null], 0, 5);
         else
             return [];
     }
@@ -934,13 +934,13 @@ abstract class AbstractBoleto implements BoletoContract
      */
     public function getDescricaoDemonstrativo()
     {
-        return array_slice((array)$this->descricaoDemonstrativo + [null, null, null, null, null], 0, 5);
+        return array_slice((array) $this->descricaoDemonstrativo + [null, null, null, null, null], 0, 5);
     }
 
     /**
      * Define o local de pagamento do boleto
      *
-     * @param  string $localPagamento
+     * @param string $localPagamento
      *
      * @return AbstractBoleto
      */
@@ -964,7 +964,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define a moeda utilizada pelo boleto
      *
-     * @param  int $moeda
+     * @param int $moeda
      *
      * @return AbstractBoleto
      */
@@ -1036,7 +1036,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o valor total do boleto (incluindo taxas)
      *
-     * @param  string $valor
+     * @param string $valor
      *
      * @return AbstractBoleto
      */
@@ -1060,7 +1060,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define o desconto total do boleto (incluindo taxas)
      *
-     * @param  string $desconto
+     * @param string $desconto
      *
      * @return AbstractBoleto
      */
@@ -1084,13 +1084,13 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Seta a % de multa
      *
-     * @param  float $multa
+     * @param float $multa
      *
      * @return AbstractBoleto
      */
     public function setMulta($multa)
     {
-        $this->multa = (float)($multa > 0.00 ? $multa : 0.00);
+        $this->multa = (float) ($multa > 0.00 ? $multa : 0.00);
 
         return $this;
     }
@@ -1108,13 +1108,13 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Seta a % de juros
      *
-     * @param  float $juros
+     * @param float $juros
      *
      * @return AbstractBoleto
      */
     public function setJuros($juros)
     {
-        $this->juros = (float)($juros > 0.00 ? $juros : 0.00);
+        $this->juros = (float) ($juros > 0.00 ? $juros : 0.00);
 
         return $this;
     }
@@ -1137,21 +1137,21 @@ abstract class AbstractBoleto implements BoletoContract
     public function getMoraDia()
     {
         if ($this->getJuros() <= 0) {
-           return 0;
+            return 0;
         }
-        return Util::percent($this->getValor(), $this->getJuros())/30;
+        return Util::percent($this->getValor(), $this->getJuros()) / 30;
     }
 
     /**
      * Seta a quantidade de dias apos o vencimento que cobra o juros
      *
-     * @param  int $jurosApos
+     * @param int $jurosApos
      *
      * @return AbstractBoleto
      */
     public function setJurosApos($jurosApos)
     {
-        $jurosApos = (int)$jurosApos;
+        $jurosApos = (int) $jurosApos;
         $this->jurosApos = $jurosApos > 0 ? $jurosApos : 0;
 
         return $this;
@@ -1180,7 +1180,7 @@ abstract class AbstractBoleto implements BoletoContract
         if ($this->getDiasBaixaAutomatica() > 0) {
             throw new \Exception('Você deve usar dias de protesto ou dias de baixa, nunca os 2');
         }
-        $diasProtesto = (int)$diasProtesto;
+        $diasProtesto = (int) $diasProtesto;
         $this->diasProtesto = $diasProtesto > 0 ? $diasProtesto : 0;
 
         return $this;
@@ -1225,7 +1225,7 @@ abstract class AbstractBoleto implements BoletoContract
     /**
      * Define a localização do logotipo
      *
-     * @param  string $logo
+     * @param string $logo
      *
      * @return AbstractBoleto
      */
@@ -1243,7 +1243,7 @@ abstract class AbstractBoleto implements BoletoContract
      */
     public function getLogo()
     {
-        return $this->logo ? $this->logo : "http://dummyimage.com/300x70/f5/0.png&text=Sem+Logo";
+        return $this->logo ? $this->logo : 'http://dummyimage.com/300x70/f5/0.png&text=Sem+Logo';
     }
 
     /**
@@ -1544,12 +1544,12 @@ abstract class AbstractBoleto implements BoletoContract
      * @return string
      * @throws \Exception
      */
-     public function renderPDF($print = false, $instrucoes = true)
+    public function renderPDF($print = false, $instrucoes = true)
     {
-        if($this->codigoBanco == 104){
-           $pdf = new PdfCaixa();
-        }else{
-           $pdf = new Pdf();
+        if ($this->codigoBanco == 104) {
+            $pdf = new PdfCaixa();
+        } else {
+            $pdf = new Pdf();
         }
         $pdf->addBoleto($this);
         !$print || $pdf->showPrint();
@@ -1649,7 +1649,7 @@ abstract class AbstractBoleto implements BoletoContract
                         'documento' => $this->getSacadorAvalista()->getDocumento(),
                         'nome_documento' => $this->getSacadorAvalista()->getNomeDocumento(),
                         'endereco2' => $this->getSacadorAvalista()->getCepCidadeUf(),
-						'endereco_completo' => $this->getSacadorAvalista()->getEnderecoCompleto(),
+                        'endereco_completo' => $this->getSacadorAvalista()->getEnderecoCompleto(),
                     ]
                         : [],
                 'pagador' => [
@@ -1662,7 +1662,7 @@ abstract class AbstractBoleto implements BoletoContract
                     'documento' => $this->getPagador()->getDocumento(),
                     'nome_documento' => $this->getPagador()->getNomeDocumento(),
                     'endereco2' => $this->getPagador()->getCepCidadeUf(),
-					'endereco_completo' => $this->getPagador()->getEnderecoCompleto(),
+                    'endereco_completo' => $this->getPagador()->getEnderecoCompleto(),
                 ],
                 'demonstrativo' => $this->getDescricaoDemonstrativo(),
                 'instrucoes' => $this->getInstrucoes(),
