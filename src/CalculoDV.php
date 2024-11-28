@@ -1,4 +1,5 @@
 <?php
+
 namespace Eduardokum\LaravelBoleto;
 
 class CalculoDV
@@ -39,8 +40,8 @@ class CalculoDV
     {
         $conta = sprintf('%03s%09s', self::bnbAgenciaReal($agencia), $conta);
         $dv = Util::modulo11($conta, 2, 9, 1);
-        if($dv > 1) {
-            return 11-$dv;
+        if ($dv > 1) {
+            return 11 - $dv;
         }
         return 0;
     }
@@ -50,7 +51,8 @@ class CalculoDV
         return Util::modulo11(Util::numberFormatGeral($nossoNumero, 7));
     }
 
-    private static function bnbAgenciaReal($agencia) {
+    private static function bnbAgenciaReal($agencia)
+    {
         $agenciaAntiga = [
             '1' => '99', '2' => '44', '3' => '74', '4' => '73', '5' => '81', '6' => '1',
             '7' => '2', '8' => '53', '9' => '46', '10' => '20', '11' => '82', '12' => '47',
@@ -90,7 +92,7 @@ class CalculoDV
         $sums = array_reverse(str_split('97310097131973', 1));
         $sum = 0;
         foreach ($chars as $i => $char) {
-            $sum += substr($char*$sums[$i], -1);
+            $sum += substr($char * $sums[$i], -1);
         }
         $unidade = substr($sum, -1);
         return $unidade == 0 ? $unidade : 10 - $unidade;
@@ -123,7 +125,7 @@ class CalculoDV
             $dv2 = Util::modulo11($agencia . $dv1, 2, 7);
         }
 
-        return $dv1.$dv2;
+        return $dv1 . $dv2;
     }
 
     public static function banrisulContaCorrente($contaCorrente)
@@ -133,10 +135,10 @@ class CalculoDV
 
         $sum = 0;
         foreach ($chars as $i => $char) {
-            $sum += $char*$sums[$i];
+            $sum += $char * $sums[$i];
         }
 
-        $resto = $sum%11;
+        $resto = $sum % 11;
 
         if ($resto == 0) {
             return $resto;
@@ -159,15 +161,15 @@ class CalculoDV
         $dv1 = Util::modulo10($campo);
         $dv2 = Util::modulo11($campo . $dv1, 2, 7, 1, 10);
 
-        if ($dv2 == 1){
-            if ($dv1 == 9){
+        if ($dv2 == 1) {
+            if ($dv1 == 9) {
                 $dv1 = 0;
-            }else{
+            } else {
                 $dv1++;
             }
 
             $dv2 = Util::modulo11($campo . $dv1, 2, 7, 0, 10);
-        }elseif($dv2 != 0){
+        } elseif ($dv2 != 0) {
             $dv2 = (11 - $dv2);
         }
 
@@ -274,7 +276,7 @@ class CalculoDV
             . Util::numberFormatGeral($ano, 2)
             . Util::numberFormatGeral($byte, 1)
             . Util::numberFormatGeral($numero_boleto, 5);
-        return  Util::modulo11($n);
+        return Util::modulo11($n);
     }
 
     /*
@@ -302,7 +304,7 @@ class CalculoDV
         $sums = str_split('3197319731973197319731973197', 1);
         $sum = 0;
         foreach ($chars as $i => $char) {
-            $sum += $char*$sums[$i];
+            $sum += $char * $sums[$i];
         }
         $resto = $sum % 11;
         $dv = 0;
@@ -310,7 +312,7 @@ class CalculoDV
         if (($resto != 0) && ($resto != 1)) {
             $dv = 11 - $resto;
         }
-        return  $dv;
+        return $dv;
     }
 
 
@@ -348,20 +350,11 @@ class CalculoDV
         return $digitoVerificador;
     }
 
-    /*
-  |--------------------------------------------------------------------------
-  | 084 - Sisprime
-  |--------------------------------------------------------------------------
-  */
-
-    public static function sisprimeCodigoBarra($numero)
-    {
-        $digitoVerificador = Util::modulo11($numero);
-        if ($digitoVerificador == 0 || $digitoVerificador > 9)
-            $digitoVerificador = 1;
-        return $digitoVerificador;
-    }
-
+    /**
+     * --------------------------------------------------------------------------
+     * 084 - Sisprime
+     * -------------------------------------------------------------------
+     */
 
     public static function sisprimeNossoNumero($agencia, $conta, $carteira, $numero_boleto)
     {
@@ -369,6 +362,7 @@ class CalculoDV
             . Util::numberFormatGeral($conta, 5)
             . Util::numberFormatGeral($carteira, 3)
             . Util::numberFormatGeral($numero_boleto, 10);
-        return Util::modulo11($n, '2',  9, 0,'P');
+        return Util::modulo11($n, '2', 9, 0, 'P');
     }
+
 }

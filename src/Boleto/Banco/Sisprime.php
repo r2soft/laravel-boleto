@@ -3,6 +3,7 @@
 namespace Eduardokum\LaravelBoleto\Boleto\Banco;
 
 
+use App\Model\Traits\UrlPixTrait;
 use Eduardokum\LaravelBoleto\Boleto\AbstractBoleto;
 use Eduardokum\LaravelBoleto\CalculoDV;
 use Eduardokum\LaravelBoleto\Contracts\Boleto\Boleto;
@@ -12,6 +13,7 @@ use Eduardokum\LaravelBoleto\Util;
 
 class Sisprime extends AbstractBoleto implements BoletoContract
 {
+    use UrlPixTrait;
 
     protected $codigoBanco = Boleto::COD_BANCO_SISPRIME;
 
@@ -29,20 +31,20 @@ class Sisprime extends AbstractBoleto implements BoletoContract
      *
      * @var string
      */
-    protected $localPagamento = 'Pagável Preferencialmente na Sisprime';
+    protected $localPagamento = 'Pagável em qualquer Banco até o vencimento';
 
     /**
      * Define as carteiras disponíveis para este banco
      *
      * @var array
      */
-    protected $carteiras = ['009'];
+    protected $carteiras = ['09'];
 
     /**
      * Define a espécie do documento
      * @var string
      */
-    protected $especieDoc = 'DM';
+    protected $especieDoc = "DM";
 
     /**
      * Método onde o Boleto deverá gerar o Nosso Número.
@@ -79,9 +81,13 @@ class Sisprime extends AbstractBoleto implements BoletoContract
         if ($this->campoLivre) {
             return $this->campoLivre;
         }
+
         $campoLivre = Util::numberFormatGeral($this->agencia, 4);
-        $campoLivre .= Util::numberFormatGeral($this->conta . $this->contaDv, 10);
-        $campoLivre .= $this->getNossoNumero();
+        $campoLivre .= $this->getCarteira();
+        $campoLivre .= Util::numberFormatGeral($this->getNumeroDocumento(), 11);
+        $campoLivre .= Util::numberFormatGeral($this->conta, 7);
+        $campoLivre .= '0';
+
         return $this->campoLivre = $campoLivre;
     }
 
@@ -114,6 +120,39 @@ class Sisprime extends AbstractBoleto implements BoletoContract
      * @return string
      * @throws \Exception
      */
+
+    public function modulo11($n, $factor = 2, $base = 9, $x10 = 0, $resto10 = 0)
+    {
+        $sum = 0;
+
+        for ($i = mb_strlen($n); $i > 0; $i--) {
+            $digit = (int) mb_substr($n, $i - 1, 1);
+            $sum += $digit * $factor;
+
+            // Increment and reset factor
+            if ($factor == $base) {
+                $factor = 1;
+            }
+            $factor++;
+        }
+
+        if ($x10 == 0) {
+            $sum *= 10;
+
+            $digito = $sum % 11;
+
+            if ($digito == 10) {
+                $digito = $resto10;
+            }
+            if ($digito == 0 || $digito > 9)
+                $digito = 1;
+
+            return $digito;
+        }
+
+        return $sum % 11;
+    }
+
     public function getCodigoBarras()
     {
         if (!empty($this->campoCodigoBarras)) {
@@ -124,14 +163,14 @@ class Sisprime extends AbstractBoleto implements BoletoContract
             throw new \Exception('Campos requeridos pelo banco, aparentam estar ausentes ' . $messages);
         }
 
-        $codigo = Util::numberFormatGeral($this->getCodigoBanco(), 3)
-            . $this->getMoeda()
-            . Util::fatorVencimento($this->getDataVencimento())
-            . Util::numberFormatGeral($this->getValor(), 10)
-            . $this->getCampoLivre();
-
-        $dv = CalculoDV::sisprimeCodigoBarra($codigo);
+        $codigo = Util::numberFormatGeral($this->getCodigoBanco(), 3) .
+            $this->getMoeda() .
+            Util::fatorVencimento($this->getDataVencimento()) .
+            Util::numberFormatGeral($this->getValor(), 10) .
+            $this->getCampoLivre();
+        $dv = $this->modulo11($codigo);
         return $this->campoCodigoBarras = substr($codigo, 0, 4) . $dv . substr($codigo, 4);
+
     }
 
     /**
