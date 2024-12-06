@@ -2,8 +2,6 @@
 
 namespace Eduardokum\LaravelBoleto\Boleto\Banco;
 
-
-use App\Model\Traits\UrlPixTrait;
 use Eduardokum\LaravelBoleto\Boleto\AbstractBoleto;
 use Eduardokum\LaravelBoleto\CalculoDV;
 use Eduardokum\LaravelBoleto\Contracts\Boleto\Boleto;
@@ -13,8 +11,6 @@ use Eduardokum\LaravelBoleto\Util;
 
 class Sisprime extends AbstractBoleto implements BoletoContract
 {
-    use UrlPixTrait;
-
     protected $codigoBanco = Boleto::COD_BANCO_SISPRIME;
 
     /**
