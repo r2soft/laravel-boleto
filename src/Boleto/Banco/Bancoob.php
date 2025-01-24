@@ -23,7 +23,9 @@ class Bancoob extends AbstractBoleto implements BoletoContract
      * Define as carteiras disponíveis para este banco
      * @var array
      */
-    protected $carteiras = ['1','3'];
+    protected $carteiras = ['1','3','9'];
+
+
     /**
      * Espécie do documento, código para remessa do CNAB240
      * @var string
@@ -103,7 +105,7 @@ class Bancoob extends AbstractBoleto implements BoletoContract
      */
     public function getNossoNumeroBoleto()
     {
-        return substr_replace($this->getNossoNumero(), '-', -1, 0);
+        return substr($this->getNossoNumero(), 0, -1);
     }
     /**
      * Método para gerar o código da posição de 20 a 44
@@ -113,18 +115,19 @@ class Bancoob extends AbstractBoleto implements BoletoContract
      */
     protected function getCampoLivre()
     {
+
         if ($this->campoLivre) {
             return $this->campoLivre;
         }
 
-        $nossoNumero = $this->getNossoNumero();
-
+        $nossoNumero = $this->getNossoNumeroBoleto();
         $campoLivre = Util::numberFormatGeral($this->getCarteira(), 1);
         $campoLivre .= Util::numberFormatGeral($this->getAgencia(), 4);
-        $campoLivre .= Util::numberFormatGeral($this->getCarteira(), 2);
-        $campoLivre .= Util::numberFormatGeral($this->getConvenio(), 7);
-        $campoLivre .= Util::numberFormatGeral($nossoNumero, 8);
-        $campoLivre .= Util::numberFormatGeral(1, 3); //Numero da parcela - Não implementado
+
+//        $campoLivre .= Util::numberFormatGeral('', 9);
+        $campoLivre .= Util::numberFormatGeral($this->getConvenio(), 9);
+        $campoLivre .= Util::numberFormatGeral($nossoNumero, 9);
+        $campoLivre .= Util::numberFormatGeral(01, 2);
 
         return $this->campoLivre = $campoLivre;
     }
@@ -153,6 +156,70 @@ class Bancoob extends AbstractBoleto implements BoletoContract
         ];
     }
 
+    /**
+     * Retorna o codigo de barras
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function getCodigoBarras()
+    {
+        if (!empty($this->campoCodigoBarras)) {
+            return $this->campoCodigoBarras;
+        }
+
+        if (!$this->isValid($messages)) {
+            throw new \Exception('Campos requeridos pelo banco, aparentam estar ausentes ' . $messages);
+        }
+        $codigo = Util::numberFormatGeral($this->getCodigoBanco(), 3)
+            . $this->getMoeda()
+            . Util::fatorVencimento($this->getDataVencimento())
+            . Util::numberFormatGeral($this->getValor(), 10)
+            . $this->getCampoLivre();
+        $dv = $this->modulo11($codigo);
+
+        return $this->campoCodigoBarras = substr($codigo, 0, 4) . $dv . substr($codigo, 4);
+
+    }
+
+    /**
+     * Retorna o codigo de barras
+     *
+     * @return string
+     * @throws \Exception
+     */
+
+    public function modulo11($n, $factor = 2, $base = 9, $x10 = 0, $resto10 = 0)
+    {
+        $sum = 0;
+
+        for ($i = mb_strlen($n); $i > 0; $i--) {
+            $digit = (int) mb_substr($n, $i - 1, 1);
+            $sum += $digit * $factor;
+
+            // Increment and reset factor
+            if ($factor == $base) {
+                $factor = 1;
+            }
+            $factor++;
+        }
+
+        if ($x10 == 0) {
+            $sum *= 10;
+
+            $digito = $sum % 11;
+
+            if ($digito == 10) {
+                $digito = $resto10;
+            }
+            if ($digito == 0 || $digito > 9)
+                $digito = 1;
+
+            return $digito;
+        }
+
+        return $sum % 11;
+    }
 
     /**
      * Agência/Código do Beneficiário: Informar o prefixo da agência e o código de associado/cliente.
@@ -163,5 +230,5 @@ class Bancoob extends AbstractBoleto implements BoletoContract
     public function getAgenciaCodigoBeneficiario(){
         return $this->getAgencia() . ' / ' . $this->getConvenio();
     }
-    
+
 }
