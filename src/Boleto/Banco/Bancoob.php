@@ -119,9 +119,8 @@ class Bancoob extends AbstractBoleto implements BoletoContract
         if ($this->campoLivre) {
             return $this->campoLivre;
         }
-
+        $nossoNumero = $this->getNossoNumero();
         if ($this->getCarteira() == '9/1') {
-            $nossoNumero = substr($this->getNossoNumero(), 0, -1);
             $campoLivre = Util::numberFormatGeral($this->getCarteira(), 1);
             $campoLivre .= Util::numberFormatGeral($this->getAgencia(), 4);
             $campoLivre .= Util::numberFormatGeral($this->getConvenio(), 9);
@@ -129,7 +128,6 @@ class Bancoob extends AbstractBoleto implements BoletoContract
             $campoLivre .= Util::numberFormatGeral(01, 2);
             $this->setCarteira(  explode('/', $this->getCarteira())[1]);
         } else {
-            $nossoNumero = $this->getNossoNumero();
             $campoLivre = Util::numberFormatGeral($this->getCarteira(), 1);
             $campoLivre .= Util::numberFormatGeral($this->getAgencia(), 4);
             $campoLivre .= Util::numberFormatGeral($this->getCarteira(), 2);
