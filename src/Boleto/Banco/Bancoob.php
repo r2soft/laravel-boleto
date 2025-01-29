@@ -119,7 +119,9 @@ class Bancoob extends AbstractBoleto implements BoletoContract
         if ($this->campoLivre) {
             return $this->campoLivre;
         }
+
         $nossoNumero = $this->getNossoNumero();
+
         if ($this->getCarteira() == '9/1') {
             $campoLivre = Util::numberFormatGeral($this->getCarteira(), 1);
             $campoLivre .= Util::numberFormatGeral($this->getAgencia(), 4);
