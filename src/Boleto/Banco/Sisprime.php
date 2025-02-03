@@ -80,7 +80,7 @@ class Sisprime extends AbstractBoleto implements BoletoContract
 
         $campoLivre = Util::numberFormatGeral($this->agencia, 4);
         $campoLivre .= $this->getCarteira();
-        $campoLivre .= Util::numberFormatGeral($this->getNumeroDocumento(), 11);
+        $campoLivre .= Util::numberFormatGeral($this->getNumero(), 11);
         $campoLivre .= Util::numberFormatGeral($this->conta, 7);
         $campoLivre .= '0';
 
