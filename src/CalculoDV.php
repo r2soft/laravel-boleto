@@ -365,4 +365,14 @@ class CalculoDV
         return Util::modulo11($n, '2', 9, 0, 'P');
     }
 
+    /**
+     * --------------------------------------------------------------------------
+     * 218 - Bs2
+     * -------------------------------------------------------------------
+     */
+
+    public static function bs2NossoNumero($nossoNumero)
+    {
+        return Util::modulo11($nossoNumero, 9, 2, 1, 0);
+    }
 }
