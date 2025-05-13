@@ -29,7 +29,7 @@ class Bs2 extends AbstractBoleto implements BoletoContract
      *
      * @var string
      */
-    protected $localPagamento = 'Pagável em qualquer Banco até o vencimento';
+    protected $localPagamento = 'Pagável em qualquer banco, mesmo após vencimento';
 
     /**
      * Define as carteiras disponíveis para este banco
@@ -77,11 +77,10 @@ class Bs2 extends AbstractBoleto implements BoletoContract
             return $this->campoLivre;
         }
 
-        $campoLivre = Util::numberFormatGeral($this->agencia, 4);
-        $campoLivre .= $this->getCarteira();
+        $campoLivre = '001';
+        $campoLivre .= Util::numberFormatGeral($this->conta, 10);
         $campoLivre .= Util::numberFormatGeral($this->getNumero(), 11);
-        $campoLivre .= Util::numberFormatGeral($this->conta, 7);
-        $campoLivre .= '0';
+        $campoLivre .= '8';
 
         return $this->campoLivre = $campoLivre;
     }
@@ -157,12 +156,11 @@ class Bs2 extends AbstractBoleto implements BoletoContract
         if (!$this->isValid($messages)) {
             throw new \Exception('Campos requeridos pelo banco, aparentam estar ausentes ' . $messages);
         }
-
-        $codigo = Util::numberFormatGeral($this->getCodigoBanco(), 3) .
-            $this->getMoeda() .
-            Util::fatorVencimento($this->getDataVencimento()) .
-            Util::numberFormatGeral($this->getValor(), 10) .
-            $this->getCampoLivre();
+        $codigo = Util::numberFormatGeral($this->getCodigoBanco(), 3)
+            . $this->getMoeda()
+            . Util::fatorVencimento($this->getDataVencimento())
+            . Util::numberFormatGeral($this->getValor(), 10)
+            . $this->getCampoLivre();
         $dv = $this->modulo11($codigo);
         return $this->campoCodigoBarras = substr($codigo, 0, 4) . $dv . substr($codigo, 4);
 

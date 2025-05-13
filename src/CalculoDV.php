@@ -371,8 +371,22 @@ class CalculoDV
      * -------------------------------------------------------------------
      */
 
-    public static function bs2NossoNumero($nossoNumero)
+    public static function bs2NossoNumero($numero)
     {
-        return Util::modulo11($nossoNumero, 9, 2, 1, 0);
+        $variavelParaOCalculo = Util::numberFormatGeral($numero, 10);
+        $constanteParaCalculo = '3298765432';
+
+        $soma = 0;
+        for ($contador = 0; $contador < 10; $contador++) {
+            $soma += $variavelParaOCalculo[$contador] * $constanteParaCalculo[$contador];
+        }
+
+        $restoDivisao = $soma % 11;
+
+        if ($restoDivisao == 1 || $restoDivisao == 0)
+            $digitoVerificador = 0;
+        else
+            $digitoVerificador = 11 - $restoDivisao;
+        return $digitoVerificador;
     }
 }
