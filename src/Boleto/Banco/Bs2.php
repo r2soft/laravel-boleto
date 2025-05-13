@@ -79,7 +79,7 @@ class Bs2 extends AbstractBoleto implements BoletoContract
 
         $campoLivre = '001';
         $campoLivre .= Util::numberFormatGeral($this->conta, 10);
-        $campoLivre .= Util::numberFormatGeral($this->getNumero(), 11);
+        $campoLivre .= Util::numberFormatGeral($this->getNossoNumero(), 11);
         $campoLivre .= '8';
 
         return $this->campoLivre = $campoLivre;
