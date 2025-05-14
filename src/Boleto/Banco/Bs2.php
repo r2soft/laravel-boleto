@@ -57,6 +57,18 @@ class Bs2 extends AbstractBoleto implements BoletoContract
     }
 
     /**
+     * Retorna o campo Agência/Beneficiário do boleto
+     *
+     * @return string
+     */
+    public function getAgenciaCodigoBeneficiario()
+    {
+        $agencia = $this->getAgenciaDv() !== null ? $this->getAgencia() . '-' . $this->getAgenciaDv() : $this->getAgencia();
+        $codigoCliente = Util::numberFormatGeral($this->conta, 10);
+        return $agencia . ' / ' . $codigoCliente;
+    }
+
+    /**
      * Método que retorna o nosso numero usado no boleto. alguns bancos possuem algumas diferenças.
      *
      * @return string
