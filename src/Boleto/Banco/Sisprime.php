@@ -52,7 +52,7 @@ class Sisprime extends AbstractBoleto implements BoletoContract
         $numero_boleto = Util::numberFormatGeral($this->getNumero(), 10);
         $carteira = Util::numberFormatGeral($this->getCarteira(), 3);
         $agencia = Util::numberFormatGeral($this->getAgencia(), 4);
-        $conta = Util::numberFormatGeral($this->getConta(), 5);
+        $conta = Util::numberFormatGeral($this->getConta(), 7);
         $dv = CalculoDV::sisprimeNossoNumero($agencia, $conta, $carteira, $numero_boleto);
         return $carteira . $numero_boleto . $dv;
     }
