@@ -356,13 +356,27 @@ class CalculoDV
      * -------------------------------------------------------------------
      */
 
-    public static function sisprimeNossoNumero($agencia, $conta, $carteira, $numero_boleto)
+    public static function sisprimeNossoNumero($carteira, $numero_boleto)
     {
-        $n = Util::numberFormatGeral($agencia, 4)
-            . Util::numberFormatGeral($conta, 5)
-            . Util::numberFormatGeral($carteira, 3)
-            . Util::numberFormatGeral($numero_boleto, 10);
-        return Util::modulo11($n, '2', 9, 0, 'P');
+        $numero =  Util::numberFormatGeral($carteira, 2)
+            . Util::numberFormatGeral($numero_boleto, 11);
+        $peso = 2;
+        $soma = 0;
+
+        for ($i = strlen($numero) - 1; $i >= 0; $i--) {
+            $soma += intval($numero[$i]) * $peso;
+            $peso = ($peso == 7) ? 2 : $peso + 1;
+        }
+
+        $resto = $soma % 11;
+
+        if ($resto == 0) {
+            return '0';
+        } elseif ($resto == 1) {
+            return 'P';
+        } else {
+            return strval(11 - $resto);
+        }
     }
 
     /**
