@@ -20,6 +20,7 @@ interface Boleto
     const COD_BANCO_BRB = '070';
     const COD_BANCO_SISPRIME = '084';
     const COD_BANCO_BS2 = '218';
+    const COD_BANCO_ASAAS = '461';
 
     const STATUS_REGISTRO = 1;
     const STATUS_ALTERACAO = 2;
