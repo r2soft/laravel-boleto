@@ -40,7 +40,7 @@ class Efi extends AbstractBoleto implements BoletoContract
     /** Nosso Número conforme já definido externamente. */
     protected function gerarNossoNumero(): string
     {
-        return (string) $this->numero;
+        return Util::numberFormatGeral($this->getConta(), 9). '1' . Util::numberFormatGeral($this->getNumeroDocumento(),10);
     }
 
     public function getNossoNumeroBoleto(): string
