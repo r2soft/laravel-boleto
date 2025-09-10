@@ -80,7 +80,7 @@ class Canvi  extends AbstractBoleto implements BoletoContract
         'O'   => '99', //Outros,
     ];
     /**
-     * Mostrar o endereço do beneficiário abaixo da razão e CNPJ na ficha de compensação
+     * Mostrar o endereço do beneficiário abaixo da razão e CNPJ na ficha de Compensação
      *
      * @var boolean
      */
