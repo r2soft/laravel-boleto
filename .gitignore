@@ -8,3 +8,5 @@
 .phpunit.result.cache
 /nbproject/private/
 nbproject/
+.memory/
+.sync_state.json

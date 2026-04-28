@@ -137,7 +137,7 @@ class Blade
     {
         $resolver = $this->container['view.engine.resolver'];
         $finder = $this->container['view.finder'];
-        $env = new Factory($resolver, $finder, new Dispatcher);
+        $env = new Factory($resolver, $finder, new Dispatcher($this->container));
         $env->setContainer($this->container);
 
         return $env;
