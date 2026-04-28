@@ -110,7 +110,7 @@ abstract class AbstractPdf extends \FPDF
     protected function _()
     {
         $args = func_get_args();
-        $var  = utf8_decode(array_shift($args));
+        $var  = mb_convert_encoding(array_shift($args), 'ISO-8859-1', 'UTF-8');
         $s    = vsprintf($var, $args);
         return $s;
     }
